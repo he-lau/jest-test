@@ -18,9 +18,9 @@ export function Calculator(){
             case "multiply":
                 return (multiply(a,b));
             case "divide":
-                return (divide(a,b));                                           
+                return (divideSafely(a,b));                                           
             default:
-                return "";      
+                return "Operator error";      
         }
     }
 
@@ -42,7 +42,15 @@ export function Calculator(){
         const value = Number(e.target.value);
         setB(Number(value));
         //setResult(calculate(a,value,operator));
-    }    
+    }
+
+    function divideSafely(a,b) {
+        try{
+            return divide(a,b);
+        } catch(error){
+            return error.message;
+        }
+    }
 
     return <div className="">
         <h1>Calculator</h1>
