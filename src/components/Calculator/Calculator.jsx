@@ -55,16 +55,16 @@ export function Calculator(){
     return <div className="">
         <h1>Calculator</h1>
         <div className={s.container}>
-            <input type="number" onChange={handleOnChangeA} />
-            <select onChange={handleOnChangeOperator} defaultValue="sum">
+            <input type="number" data-testid="inputA" onChange={handleOnChangeA} />
+            <select onChange={handleOnChangeOperator} defaultValue="sum" data-testid="operator">
                 <option value="sum">+</option>
                 <option value="substract">-</option>
                 <option value="multiply">*</option>
                 <option value="divide">/</option>
             </select>
-            <input type="number" onChange={handleOnChangeB} />
+            <input type="number" onChange={handleOnChangeB} data-testid="inputB" />
             </div>
             <h2>Result</h2>
-            <span className="result">{result===""?"":result}</span>
+            <span className="result" data-testid="result">{result===""?"":result}</span>
     </div>;
 }
