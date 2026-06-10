@@ -39,8 +39,10 @@ describe("<Calculator/>",()=>{
         expect(getResult()).toBe("21");
 
         fireEvent.change(screen.getByTestId('operator'),{target:{value:"sum"}});
-
         expect(getResult()).toBe("10");
+
+        fireEvent.change(screen.getByTestId('operator'),{target:{value:"substract"}});
+        expect(getResult()).toBe("-4");
 
     });   
     
@@ -51,6 +53,15 @@ describe("<Calculator/>",()=>{
         fireEvent.change(screen.getByTestId('operator'),{target:{value:"divide"}});
         expect(getResult()).toBe("You can't divide by 0");
     });    
+
+    it("displays an error when the operator is invalid",()=>{
+        const {getValueA, getValueB, getOperator, getResult} = getCalculator();
+        fireEvent.change(screen.getByTestId('operator'),{target:{value:""}});
+        expect(getResult()).toBe("No operator or invalid");
+
+
+
+    })
 });
 
 const getCalculator = ()=> {

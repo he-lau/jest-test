@@ -20,7 +20,7 @@ export function Calculator(){
             case "divide":
                 return (divideSafely(a,b));                                           
             default:
-                return "Operator error";      
+                return "No operator or invalid";      
         }
     }
 
