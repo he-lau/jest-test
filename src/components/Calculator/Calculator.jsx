@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import s from "./Calculator.module.css";
 import { sum, substract, multiply, divide } from "../../utils/math-functions.js";
 
